@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jumanji - Aventura na Selva | Maria Eduarda</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <div class="logo">A SELVA</div>
+    <p class="subtitulo">A aventura está em suas mãos</p>
+    <button id="creatorButton" class="botao-criador">
+      Criador do jogo
+    </button>
+    <button id="soundButton" class="botao-som" aria-label="Ativar ou desativar sons">
+      🔊
+    </button>
+  </header>
+
+  <aside id="creatorPanel" class="painel-criador hidden">
+    <button id="closeCreator" class="fechar" aria-label="Fechar">×</button>
+    <h2>🎮 Criador do jogo</h2>
+    <p>Desenvolvido por: <strong>Maria Eduarda</strong></p>
+    <p>2º ano EMTI</p>
+  </aside>
+
+  <main>
+    <section id="introScreen" class="tela-inicial">
+      <div class="pergaminho">
+        <span class="icone-grande">🌿</span>
+        <h1>Você foi escolhido!</h1>
+        <p>
+          Um antigo jogo misterioso levou você para uma selva cheia
+          de perigos, pistas e tesouros.
+        </p>
+        <p>
+          Escolha seus caminhos, encontre itens e sobreviva aos desafios.
+          Cada decisão pode mudar o seu destino!
+        </p>
+        <button id="startButton" class="botao-principal">
+          🎲 COMEÇAR A AVENTURA
+        </button>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="jogo hidden">
+      <div class="barra-status">
+        <div>❤️ Vidas: <strong id="lives">3</strong></div>
+        <div>⭐ Pontos: <strong id="score">0</strong></div>
+        <div>🧭 Progresso: <strong id="progress">0/8</strong></div>
+      </div>
+
+      <div class="mapa" id="map">
+        <div class="neblina"></div>
+
+        <div class="placa placa-pantano">🐊 PÂNTANO</div>
+        <div class="placa placa-montanha">🏔️ MONTANHAS</div>
+        <div class="placa placa-ruinas">🗿 RUÍNAS</div>
+        <div class="placa placa-acampamento">⛺ ACAMPAMENTO</div>
+
+        <svg class="trilhas" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M500 600 C470 530 530 490 480 430 S390 350 500 300 S650 220 600 170" />
+          <path d="M480 430 C350 420 280 350 180 300" />
+          <path d="M500 300 C650 350 750 400 850 330" />
+          <path d="M500 300 C420 220 300 180 200 130" />
+          <path d="M600 170 C730 130 800 180 880 220" />
+        </svg>
+
+        <div class="local local-inicial" data-local="0">🏕️</div>
+        <div class="local local-bosque" data-local="1">🌳</div>
+        <div class="local local-pantano" data-local="2">🐊</div>
+        <div class="local local-cachoeira" data-local="3">💧</div>
+        <div class="local local-ruinas" data-local="4">🗿</div>
+        <div class="local local-montanha" data-local="5">🏔️</div>
+        <div class="local local-templo" data-local="6">🏛️</div>
+        <div class="local local-tesouro" data-local="7">💎</div>
+
+        <div id="player" class="personagem" aria-label="Seu personagem">
+          🧑🏻‍🌾
+        </div>
+
+        <div id="choiceBubble" class="escolhas">
+          <div class="seta"></div>
+          <h2 id="choiceTitle">Qual caminho você escolhe?</h2>
+          <p id="storyText">A selva espera pela sua decisão...</p>
+          <div id="choices" class="lista-escolhas"></div>
+        </div>
+
+        <div class="nome-local" id="locationName">Acampamento</div>
+      </div>
+
+      <div class="painel-inferior">
+        <div class="caixa-inventario">
+          <h3>🎒 Inventário</h3>
+          <div id="inventory" class="inventario">
+            <span class="vazio">Você ainda não encontrou itens.</span>
+          </div>
+        </div>
+
+        <div class="caixa-mensagem">
+          <h3>📜 Diário da aventura</h3>
+          <p id="diary">Sua jornada começa agora. Escolha com sabedoria!</p>
+        </div>
+      </div>
+
+      <button id="restartButton" class="botao-secundario">
+        ↻ Reiniciar aventura
+      </button>
+    </section>
+
+    <section id="endingScreen" class="tela-final hidden">
+      <div class="pergaminho final">
+        <span id="endingIcon" class="icone-grande">🏆</span>
+        <h1 id="endingTitle">Fim da aventura!</h1>
+        <p id="endingText"></p>
+        <p>⭐ Pontuação final: <strong id="finalScore">0</strong></p>
+        <p>🎒 Itens encontrados: <strong id="finalItems">0</strong></p>
+        <button id="playAgainButton" class="botao-principal">
+          🔄 JOGAR NOVAMENTE
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>🌿 A SELVA — Uma escolha pode mudar tudo 🌿</p>
+    <p>Projeto escolar | Maria Eduarda — 2º ano EMTI</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
